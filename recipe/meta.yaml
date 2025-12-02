@@ -1,5 +1,5 @@
 {% set name = "langchain-azure-dynamic-sessions" %}
-{% set version = "0.2.0" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/langchain_azure_dynamic_sessions-{{ version }}.tar.gz
-  sha256: 9316a67fd9ad8f199b2a181bd62712e6561a4a0ae83db8ccf12577a6766d25dd
+  sha256: 5c6c848c90ff84e9beeef576f063d6a89a37a483a301468c9e7df38fbaac29bf
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -21,9 +21,9 @@ requirements:
     - pip
   run:
     - python >={{ python_min }},<4.0
-    - langchain-core <0.4.0,>=0.3.0
-    - azure-identity >=1.16.0,<2.0.0
-    - requests >=2.31.0,<3.0.0
+    - langchain-core >=1.0.1
+    - azure-identity >=1.16,<2.dev0
+    - requests >=2.31,<3.dev0
 
 test:
   imports:
