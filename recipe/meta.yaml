@@ -1,5 +1,5 @@
 {% set name = "langchain-azure-dynamic-sessions" %}
-{% set version = "1.0.0" %}
+{% set version = "1.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/langchain_azure_dynamic_sessions-{{ version }}.tar.gz
-  sha256: b80b2e6844f12ee392d5013a9e4e9bf4fbf56bdff8f7de06982785f7e940083e
+  sha256: f445894a77b90bc77633fb4e23a459962f5b8e5f49ba040c48bdb986a5c5249a
 
 build:
   noarch: python
