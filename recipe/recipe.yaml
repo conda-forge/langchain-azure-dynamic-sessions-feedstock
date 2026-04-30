@@ -1,0 +1,47 @@
+schema_version: 1
+
+context:
+  name: langchain-azure-dynamic-sessions
+  version: "1.0.2"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/langchain_azure_dynamic_sessions-${{ version }}.tar.gz
+  sha256: 8a37112bd920b9497d47b5039ecc2aebc51ae29dc60a481267ccf171e52ad319
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - poetry-core >=1.0.0
+    - pip
+  run:
+    - azure-core >=1.38.0
+    - python >=${{ python_min }},<4.0
+    - langchain-core >=1.0.1
+    - azure-identity >=1.16,<2.dev0
+    - requests >=2.31,<3.dev0
+
+tests:
+  - python:
+      imports:
+        - langchain_azure_dynamic_sessions
+      pip_check: true
+      python_version: ${{ python_min }}
+
+about:
+  summary: An integration package connecting Azure Container Apps dynamic sessions and LangChain
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/langchain-ai/langchain
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
