@@ -20,7 +20,7 @@ build:
 requirements:
   host:
     - python ${{ python_min }}.*
-    - poetry-core >=1.0.0
+    - uv-build
     - pip
   run:
     - azure-core >=1.38.0
